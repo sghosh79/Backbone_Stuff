@@ -1,0 +1,44 @@
+#######################################
+Creating Collections
+#######################################
+
+var Songs = Backbone.Collections.extend({
+	model: Song,
+
+	url: “/api/songs”
+});
+
+var songs = new Songs([
+	new Song({ title: “Song 1” }),
+	new Song({ title: “Song 2” })
+]);
+
+#######################################
+Working with Collections
+#######################################
+
+song.add(new Song({…});
+
+var firstSong = songs.at(0);
+
+var songWithIdC1 = songs.get(“c1”);
+
+songs.remove(firstSong);
+
+
+
+songs.push(new Song({…});
+
+var lastSong = songs.pop();
+
+
+
+var jazzSongs = songs.where({ genre: “Jazz” });
+
+var firstJazzSong = songs.findWhere({ genre: “Jazz” });
+
+var popularSongs = songs.filter(function(song){
+	song.get(“downloads”) > 10;
+});
+
+songs.each(function(song){…});
